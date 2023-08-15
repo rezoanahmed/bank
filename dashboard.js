@@ -25,3 +25,31 @@ deposit.addEventListener('click', function(){
     currentBalance.innerText = totalBalance;
 
 })
+
+// withdraw and balance update
+let withdraw = document.getElementById('withdraw');
+withdraw.addEventListener('click', function(){
+    let withdrawAmountInput = document.getElementById('withdraw-amount');
+    let withdrawAmountInputString = withdrawAmountInput.value;
+    let withdrawAmount = parseFloat(withdrawAmountInputString);
+
+    withdrawAmountInput.value = '';
+
+    let currentWithdraw = document.getElementById('current-withdraw');
+    let currentWithdrawValue = currentWithdraw.innerText;
+    let currentWithdrawAmount = parseFloat(currentWithdrawValue);
+    
+    let totalWithdraw = withdrawAmount + currentWithdrawAmount;
+
+    currentWithdraw.innerText = totalWithdraw;
+
+
+    // balance update
+    var currentBalance = document.getElementById('current-balance');
+    var currentBalanceString = currentBalance.innerText;
+    var currentBalanceAmount = parseFloat(currentBalanceString);
+
+    let totalBalance = currentBalanceAmount- withdrawAmount;
+
+    currentBalance.innerText = totalBalance;
+})
